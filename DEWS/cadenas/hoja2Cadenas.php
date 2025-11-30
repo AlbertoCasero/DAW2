@@ -1,4 +1,4 @@
-<?php/*
+<?php
 //EJERCICIO 1
     $palabra1="caracola";
     $palabra2="hOLA";
@@ -27,7 +27,7 @@
     echo "Dominio: $email[1]<br>";
     // comprobar que la última ocurrencia del punto es posterior a @
     // aplicar strrpos() sobre . y @
-*/?>
+?>
 <html>
 <body>
 <H1>Ejercicio 3 cadenas</H1>
