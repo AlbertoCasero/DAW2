@@ -1,0 +1,188 @@
+.cabecera{
+    border: 2px solid rgb(179, 79, 79);
+    border-radius: 20px;
+    background-color: black;
+    width: 95%;
+    max-width: 1200px;
+    height: 110px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    box-shadow: grey 0px 0px 30px;
+}
+
+#logo{
+    padding: 10px;
+}
+
+.cabecera h1{
+    margin: 28%;
+    font-size: 60px;
+    color: rgb(179, 79, 79);
+}
+
+#dog{
+    color: white;
+}
+
+body{
+    background-image: url(fondo.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 180px; /* Espacio para cabecera y menú fijos */
+}
+
+.menu{
+    border-radius: 20px;
+    width: 95%;
+    max-width: 1200px;
+    height: 40px;
+    margin: 0 auto;
+    border: 2px solid rgb(179, 79, 79);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    background-color: black;
+    box-sizing: border-box;
+    position: fixed;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.menu #buscar input{
+    border-radius: 20px;
+    border: none;
+    margin-left: 342%;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.menu #buscar img{
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.menu > .menu-principal{
+    list-style: none;
+    display: flex;
+    font-size: 20px;
+    margin: 30px;
+    padding: 10px;
+    gap: 40px;
+    align-items: center;
+}
+
+.menu > .menu-principal > li{
+    position: relative; /* referencia para el submenu */
+    color: rgb(179, 79, 79);
+}
+
+.menu a{
+    color: black;
+    text-decoration: none;
+}
+
+.menu a:hover{
+    color: rgb(179, 79, 79);
+}
+
+.submenu{
+    list-style: none;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    border-radius: 6px;
+    padding: 5px 0;
+    z-index: 1000;
+}
+
+.menu > .menu-principal > li:hover .submenu{
+    display: block;
+    background-color: rgb(179, 79, 79);
+}
+.submenu > li:hover{
+    background-color: black;
+}
+.submenu li{
+    padding: 10px 15px;
+}
+
+.mitad1{
+    color: rgb(179, 79, 79);
+}
+
+.mitad2{
+    color: white;
+}
+.mitad1{
+    color: rgb(179, 79, 79);
+}
+.mitad2{
+    color: white;
+}
+
+#cuerpo{
+    border-radius: 20px;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    margin: 5px auto 20px auto;
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+#cuerpo1{
+    border: 2px solid rgb(179, 79, 79);
+    border-radius: 20px;
+    background-color: black;
+    width: 70%;
+    height: 400px;
+    box-shadow: black 0px 0px 30px;
+    background-image: url(paint1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#cuerpo2{
+    border: 2px solid rgb(179, 79, 79);
+    border-radius: 20px;
+    background-color: black;
+    width: 30%;
+    height: 400px;
+    box-shadow: black 0px 0px 30px;
+    background-image: url(paint2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#pie{
+    border: 2px solid rgb(179, 79, 79);
+    border-radius: 20px;
+    width: 95%;
+    max-width: 1200px;
+    height: 100px;
+    margin: 0 auto 20px auto;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: black;
+    box-shadow: black 0px 0px 30px;
+    display: flex;
+    color: white;
+    align-items: center;
+}
