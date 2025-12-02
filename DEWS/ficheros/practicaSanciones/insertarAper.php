@@ -16,12 +16,13 @@
                         fclose($ficheroDeAlumnos);
                     ?>
                 </select><br><br>
-                Tipo de falta: <input type="radio" name="falta" value="leve">Leve
-                <input type="radio" name="falta" value="grave">Grave
-                <input type="radio" name="falta" value="muy grave">Muy Grave<br><br>
-                Sancion: <input type="text"><br><br>
+                Tipo de falta: <input type="radio" name="falta" value="L">Leve
+                <input type="radio" name="falta" value="G">Grave
+                <input type="radio" name="falta" value="MG">Muy Grave<br><br>
+                Sancion: <input type="text" name="sancion"><br><br>
                 <input type="submit" value="Registrar sancion">
                 <input type="reset" value="Reiniciar">
+                <br><br><a href="sanciona.php">Menu Principal</a>
             </form>
         </div>
     </body>
