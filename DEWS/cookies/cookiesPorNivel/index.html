@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Crear cookies por directorios</title>
+</head>
+<body>
+    <h2>Crear cookie</h2>
+    <form action="creaCookieNivel.php" method="GET">
+        Nombre: <input type="text" name="nombre"><br><br>
+        Contenido: <input type="text" name="contenido"><br><br>
+
+        <h1>Directorio:</h1>
+        <select name="ruta">
+            <option value="/cookiesPorNivel/">Raíz</option>
+            <option value="/cookiesPorNivel/nivel1/">Nivel 1</option>
+            <option value="/cookiesPorNivel/nivel1/nivel2/">Nivel 2</option>
+            <option value="/cookiesPorNivel/nivel1/nivel2/nivel3/">Nivel 3</option>
+        </select><br><br>
+        <button type="submit">Crear cookie</button>
+    </form>
+    <br><hr>
+    <h2>Crear cookie sin nombre ni contenido (solo ruta)</h2>
+    <form action="creaCookieNivel.php" method="GET">
+        <h1>Directorio:</h1>
+        <select name="ruta">
+            <option value="/cookiesPorNivel/">Raíz</option>
+            <option value="/cookiesPorNivel/nivel1/">Nivel 1</option>
+            <option value="/cookiesPorNivel/nivel1/nivel2/">Nivel 2</option>
+            <option value="/cookiesPorNivel/nivel1/nivel2/nivel3/">Nivel 3</option>
+        </select><br><br>
+        <input type="submit" value="Crear cookie vacia"/>
+    </form>
+    <br><hr>
+    <h2>Listar cookies por directorio</h2>
+    <ul>
+        <li><a href="listaCookies.php">Cookies en raíz</a></li>
+        <li><a href="nivel1/listaCookies.php">Cookies en nivel 1</a></li>
+        <li><a href="nivel1/nivel2/listaCookies.php">Cookies en nivel 2</a></li>
+        <li><a href="nivel1/nivel2/nivel3/listaCookies.php">Cookies en nivel 3</a></li>
+    </ul>
+</body>
+</html>
