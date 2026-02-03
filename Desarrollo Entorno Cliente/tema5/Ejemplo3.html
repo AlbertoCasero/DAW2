@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Eventos Load y Resize</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+      #resizeInfo {
+        margin-top: 20px;
+        padding: 15px;
+        border: 2px dashed #3498db;
+        background-color: #ecf0f1;
+        color: #2c3e50;
+        font-size: 18px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ejemplo de Eventos Load y Resize</h1>
+    <p>
+      Redimensiona la ventana para probar el evento <strong>resize</strong>.
+    </p>
+    <div id="resizeInfo">Tamaño de la ventana: Cargando...</div>
+    <script>
+      // Evento 'onload': cuando la página ha cargado por completo
+      window.onload = function () {
+      alert('¡La página se ha cargado completamente!');
+        actualizarTamañoVentana(); // Mostrar el tamaño inicial de la ventana
+      };
+      // Evento 'onresize': cuando se redimensiona la ventana del navegador
+      window.onresize = function () {
+        actualizarTamañoVentana();
+      };
+      // Función para mostrar el tamaño actual de la ventana
+      function actualizarTamañoVentana() {
+        var ancho = window.innerWidth; // Ancho del navegador
+        var alto = window.innerHeight; // Alto del navegador
+        var resizeInfo =
+        document.getElementById('resizeInfo');
+        resizeInfo.textContent = 'Tamaño de la ventana: ' + ancho + ' x ' + alto + ' píxeles';
+      }
+    </script>
+  </body>
+</html>

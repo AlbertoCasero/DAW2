@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initialscale=1.0" />
+    <title>Eventos del Ratón con offsetX y offsetY</title>
+    <style>
+      #eventBox {
+        width: 400px;
+        height: 250px;
+        border: 2px solid #3498db;
+        background-color: #ecf0f1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        font-size: 16px;
+        color: #2c3e50;
+        position: relative;
+      }
+      #log {
+        margin-top: 20px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        color: #34495e;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Eventos del Ratón con Coordenadas Relativas</h1>
+    <div id="eventBox">Mueve el ratón dentro de esta caja</div>
+    <div id="log">Coordenadas: X=0, Y=0</div>
+    <script>
+      // Seleccionar los elementos
+      var eventBox = document.getElementById("eventBox");
+      var log = document.getElementById("log");
+      // Manejar el evento 'mousemove'
+      eventBox.addEventListener("mousemove", function (event) {
+        var x = event.offsetX; // Coordenada X dentro del elemento
+        var y = event.offsetY; // Coordenada Y dentro del elemento
+        log.textContent = `Coordenadas: X=${x}, Y=${y}`;
+      });
+      // Manejar el evento 'click'
+      eventBox.addEventListener("click", function (event) {
+        log.textContent = `¡Hiciste clic en X=${event.offsetX},
+Y=${event.offsetY}!`;
+      });
+      // Manejar el evento 'mouseout'
+      eventBox.addEventListener("mouseout", function () {
+        log.textContent = "El ratón salió de la caja";
+      });
+      log.addEventListener("mouseover",function(){
+        alert("Pulsaste en las coordenadas");
+      });
+    </script>
+  </body>
+</html>

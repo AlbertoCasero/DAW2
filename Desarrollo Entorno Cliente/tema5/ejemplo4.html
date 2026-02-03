@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulario Estilizado</title>
+    <style type="text/css">
+      div {
+        margin: 0.4em 0; /* Espaciado entre los div */
+      }
+      div label {
+        width: 25%; /* Ancho del label */
+        float: left; /* Alineación a la izquierda */
+      }
+      .btn {
+        display: block; /* Botón en bloque */
+        margin: 1em 0; /* Margen superior e inferior */
+        padding: 0.5em; /* Espaciado interno */
+        background-color: #007bff; /* Color azul */
+        color: white; /* Texto blanco */
+        border: none; /* Sin borde */
+        border-radius: 5px; /* Bordes redondeados */
+        cursor: pointer; /* Cambia el cursor al pasar */
+      }
+      .btn:hover {
+        background-color: #0056b3; /* Azul más oscuro al pasar */
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Formulario etiqueta legend</legend>
+      <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" />
+      </div>
+      <div>
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" size="35" />
+      </div>
+      <input class="btn" type="submit" value="Darme de alta" />
+    </fieldset>
+  </body>
+</html>

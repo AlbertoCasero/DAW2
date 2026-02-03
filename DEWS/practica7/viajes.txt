@@ -1,3 +1,0 @@
-jarama:madrid:5 dias:lunes
-jarama:barcelona:20 dias:viernes
-hola:sajsyajstas:5 dias:jueves
