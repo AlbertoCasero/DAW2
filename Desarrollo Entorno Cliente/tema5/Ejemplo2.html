@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventos del Teclado sin jQuery</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      #keyInfo {
+        margin-top: 20px;
+        font-size: 24px;
+        color: #2c3e50;
+      }
+      #infoBox {
+        margin-top: 20px;
+        display: inline-block;
+        padding: 20px;
+        border: 2px dashed #3498db;
+        background-color: #ecf0f1;
+        font-size: 18px;
+        color: #34495e;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Eventos del Teclado</h1>
+    <p>Presiona cualquier tecla para ver la información</p>
+    <div id="keyInfo">Esperando una tecla...</div>
+    <div id="infoBox">
+      <p>
+        <strong>Nombre de la tecla:</strong> <span id="keyName">Ninguno</span>
+      </p>
+      <p>
+        <strong>Código de la tecla:</strong> <span id="keyCode">Ninguno</span>
+      </p>
+    </div>
+    <script>
+      // Seleccionar elementos del DOM
+      var keyInfo = document.getElementById("keyInfo");
+      var keyName = document.getElementById("keyName");
+      var keyCode = document.getElementById("keyCode");
+      // Manejo del evento keydown
+      document.addEventListener("keydown", function (e) {
+        var teclaPresionada = e.key; // Nombre de la tecla
+        var codigoTecla = e.code; // Código de la tecla
+        // Usar concatenación en lugar de plantillas literales
+        keyInfo.textContent = "Tecla presionada: " + teclaPresionada;
+        keyName.textContent = teclaPresionada;
+        keyCode.textContent = codigoTecla;
+      });
+    </script>
+  </body>
+</html>

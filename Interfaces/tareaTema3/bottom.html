@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bottom</title>
+</head>
+<body>
+
+<h2>Resultados</h2>
+
+<div id="resultados"></div>
+
+<hr>
+
+<h3>Información del navegador</h3>
+<div id="navInfo"></div>
+
+<h3>Resolución de pantalla</h3>
+<div id="screenInfo"></div>
+
+<h3>URL actual</h3>
+<div id="urlInfo"></div>
+
+<script>
+function mostrarResultados(nombre, fecha, numero) {
+
+    const nacimiento = new Date(fecha);
+    const hoy = new Date();
+    const edad = hoy.getFullYear() - nacimiento.getFullYear();
+
+    const raiz = Math.sqrt(numero);
+    const potencia = Math.pow(numero, 2);
+
+    const num2dec = numero.toFixed(2);
+
+    const mayus = nombre.toUpperCase();
+    const caracteres = nombre.length;
+
+    document.getElementById("resultados").innerHTML = `
+        <b>Edad:</b> ${edad}<br>
+        <b>Raíz cuadrada:</b> ${raiz}<br>
+        <b>Potencia (n²):</b> ${potencia}<br>
+        <b>Número (2 decimales):</b> ${num2dec}<br>
+        <b>Nombre en mayúsculas:</b> ${mayus}<br>
+        <b>Caracteres del nombre:</b> ${caracteres}<br>
+    `;
+
+    document.getElementById("navInfo").innerHTML =
+        navigator.userAgent;
+
+    document.getElementById("screenInfo").innerHTML =
+        `${screen.width} x ${screen.height}`;
+
+    document.getElementById("urlInfo").innerHTML =
+        window.location.href;
+}
+</script>
+
+</body>
+</html>

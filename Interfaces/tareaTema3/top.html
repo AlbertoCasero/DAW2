@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top</title>
+</head>
+<body>
+
+<h2>Formulario</h2>
+
+Nombre: <input type="text" id="nombre"><br><br>
+Fecha de nacimiento: <input type="date" id="fecha"><br><br>
+Número: <input type="number" id="numero"><br><br>
+
+<button onclick="procesar()">Enviar</button>
+<hr>
+
+<h3>Ventanas</h3>
+<button onclick="abrirVentana()">Abrir nueva ventana</button>
+<button onclick="moverVentana()">Mover</button>
+<button onclick="redimensionarVentana()">Redimensionar</button>
+<button onclick="cerrarVentana()">Cerrar</button>
+
+<br><br>
+URL nueva ventana: <input type="text" id="urlNueva">
+<button onclick="cambiarURL()">Cambiar URL</button>
+
+<hr>
+
+<h3>Historial</h3>
+<button onclick="history.back()">Atrás</button>
+<button onclick="history.forward()">Adelante</button>
+
+<script>
+let win = null;
+
+function procesar() {
+    const nombre = document.getElementById("nombre").value;
+    const fecha = document.getElementById("fecha").value;
+    const numero = Number(document.getElementById("numero").value);
+
+    parent.bottomFrame.mostrarResultados(nombre, fecha, numero);
+}
+
+function abrirVentana() {
+    win = window.open("https://example.com", "_blank", "width=400,height=300");
+}
+
+function moverVentana() {
+    if (win) win.moveBy(50, 50);
+}
+
+function redimensionarVentana() {
+    if (win) win.resizeBy(50, 50);
+}
+
+function cerrarVentana() {
+    if (win) win.close();
+}
+
+function cambiarURL() {
+    if (!win) return;
+    const nuevaURL = document.getElementById("urlNueva").value;
+    win.location.href = nuevaURL;
+}
+</script>
+
+</body>
+</html>
