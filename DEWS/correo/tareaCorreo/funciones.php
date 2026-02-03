@@ -2,8 +2,8 @@
 
   function enviarEmail($email, $asunto, $body, $attach)
   {
-    require('PHPMailer-master/src/PHPMailer.php');
-    require('PHPMailer-master/src/SMTP.php');
+    require('src/PHPMailer.php');
+    require('src/SMTP.php');
     $recipients =$email;
     $mail = new PHPMailer();
     $mail -> isSMTP();
@@ -14,7 +14,7 @@
     $mail -> Port = 25;
     $mail -> CharSet = 'UTF-8';
     $mail -> Host = "localhost";
-    $mail -> setFrom($email);
+    $mail -> setFrom("casero@domenico.es");
     $mail -> addAttachment($attach);
     if(is_array($email))
     {
@@ -40,5 +40,12 @@
     }
   }
   $correo=$_POST['correo'];
-  $asunto=$_POST['asunto'];
+  echo $correo;
+  $mensaje=$_POST['mensaje'];
+  if(empty($mensaje))
+  {
+      $mensaje="Postal de temporada";
+  }
+  $attach=$_POST['postal'];
+  enviarEmail($correo, "Correo con PHPMailer", $mensaje, $attach);
 ?>

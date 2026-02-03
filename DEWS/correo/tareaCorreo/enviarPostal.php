@@ -1,3 +1,26 @@
+<?php
+    function sacarImagenes($tema){
+    if (is_dir('temas')) {
+        $dir = opendir('temas');
+        while (($archivo = readdir($dir)) !== false) {
+            if ($archivo == $tema) {
+                if (is_dir('temas/' . $archivo)) {
+                    $dir2 = opendir('temas/' . $archivo);
+                    while (($archivo2 = readdir($dir2)) !== false) {
+                        if ($archivo2 != '.' && $archivo2 != '..') {
+                            echo "
+                            <input type='radio' name='postal' value='temas/$archivo/$archivo2'>
+                            <img src='temas/$archivo/$archivo2' alt='Postal de $archivo' width='300' height='200'>";
+                        }
+                    }
+                    closedir($dir2);
+                }
+            }
+        }
+        closedir($dir);
+    }
+    }
+?>
 <html>
 <link
       rel="stylesheet"
@@ -7,6 +30,11 @@
         <h1 class="text-center">ENVIO DE POSTALES</h1>
         <br><br>
             <?php
+            session_start();
+            $token = uniqid();
+            $session = session_id();
+            $_SESSION['token'] = $token;
+            $_SESSION['id'] = $session;
             if(!isset($_POST['tema']))
             {
                 echo "<form class='text-center' action='enviarPostal.php' method='post'>";
@@ -29,58 +57,34 @@
             {
                 $tema=$_POST['tema'];
                 echo "<form class='text-center' action='funciones.php' method='post'>";
-                    echo "<input type='hidden' name='tema' value='$tema'>";
-                    echo "<label for='correo'>Destinatario:</label>";
-
-                    echo "<select name='correo' id='correo' multiple required>";
-                    
-                    echo "</select><br><br>";
-                    echo "<label for='asunto'>Asunto:</label>";
-                    echo "<input type='text' id='asunto' name='asunto' required><br><br>";
-                    echo "<label for='mensaje'>Mensaje:</label>";
-                    echo "<input type='text' id='mensaje' name='mensaje'><br><br>";
-                    echo "<input type='submit' value='Enviar postal'>";
-                    echo "<br><br>Vista previa de la postal seleccionada:";
-                if($tema=="Verano")
-                {
-                    echo "<br>
-                    <input type='radio' name='tema' value='verano'>
-                    <img src='imgs/verano.png' alt='Postal de Verano' width='300' height='200'>
-                    <input type='radio' name='tema' value='verano'>
-                    <img src='imgs/verano2.png' alt='Postal de Verano' width='300' height='200'>
-                    <input type='radio' name='tema' value='verano'>
-                    <img src='imgs/verano3.png' alt='Postal de Verano' width='300' height='200'>";
+                echo "<input type='hidden' name='tema' value='$tema'>";
+                echo "<label for='correo'>Destinatario:</label>";
+                $con = new mysqli("localhost", "admin", "1234");
+                $con->select_db("empresa");
+                $strsql = "SELECT email FROM clientes";
+                echo "<select name='correo' id='correo' multiple required>";
+                $result = $con->query($strsql);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row["email"] . "'>" . $row["email"] . "</option>";
+                    }
                 }
-                if($tema=="Invierno")
-                {
-                    echo "<br>
-                    <input type='radio' name='tema' value='invierno'>
-                    <img src='imgs/invierno.png' alt='Postal de Invierno' width='300' height='200'>
-                    <input type='radio' name='tema' value='invierno'>
-                    <img src='imgs/invierno2.png' alt='Postal de Invierno' width='300' height='200'>
-                    <input type='radio' name='tema' value='invierno'>
-                    <img src='imgs/invierno3.png' alt='Postal de Invierno' width='300' height='200'>";
+                echo "</select><br><br>";
+                echo "<label for='mensaje'>Mensaje:</label>";
+                echo "<input type='text' id='mensaje' name='mensaje'><br><br>";
+                echo "Vista previa de la postal seleccionada:<br><br>";
+                if (is_dir('temas')) {
+                $dir = opendir('temas');
+                    while (($archivo = readdir($dir)) !== false) {
+                        if ($archivo != '.' && $archivo != '..') {
+                            if($archivo==$tema){
+                                sacarImagenes($archivo);
+                            }
+                        }
+                    }
+                    closedir($dir);
                 }
-                if($tema=="Otoño")
-                {
-                    echo "<br>
-                    <input type='radio' name='tema' value='otono'>
-                    <img src='imgs/otono.png' alt='Postal de Otoño' width='300' height='200'>
-                    <input type='radio' name='tema' value='otono'>
-                    <img src='imgs/otono2.png' alt='Postal de Otoño' width='300' height='200'>
-                    <input type='radio' name='tema' value='otono'>
-                    <img src='imgs/otono3.png' alt='Postal de Otoño' width='300' height='200'>";
-                }
-                if($tema=="Primavera")
-                {
-                    echo "<br>
-                    <input type='radio' name='tema' value='primavera'>
-                    <img src='imgs/primavera.png' alt='Postal de Primavera' width='300' height='200'>
-                    <input type='radio' name='tema' value='primavera'>
-                    <img src='imgs/primavera2.png' alt='Postal de Primavera' width='300' height='200'>
-                    <input type='radio' name='tema' value='primavera'>
-                    <img src='imgs/primavera3.png' alt='Postal de Primavera' width='300' height='200'>";
-                }
+                echo "<br><br><input type='submit' value='Enviar postal'>";
                 echo "</form>";
             }
             ?>
