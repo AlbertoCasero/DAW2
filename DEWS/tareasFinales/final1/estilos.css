@@ -1,50 +1,59 @@
 form.form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px 25px; 
-    max-width: 700px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 25px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 .form-group {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 #boton-registro {
-    grid-column: 1 / -1;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  grid-column: 1 / -1;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 #boton-login {
-    grid-column: 1 / -1;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  grid-column: 1 / -1;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
-#loginForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    max-width: 400px;
-    margin: 0 auto;
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
 }
-.text-right{
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-right: 20px;
+.text-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-right: 20px;
 }
 span.errores {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.center {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
 }

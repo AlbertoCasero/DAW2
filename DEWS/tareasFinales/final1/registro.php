@@ -155,5 +155,9 @@
                 <input id="boton-registro" type="submit" name="datos" value="Registrarse">
             </form>;
         </div>
+        <div class="text-center"><br>
+            <a href="login.php">¿Ya tienes una cuenta? Inicia sesión aquí</a><br><br>
+            <a href="listaCursos.php">Volver al Menu Principal</a>
+        </div>
     </body>
 </html>

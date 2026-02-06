@@ -4,7 +4,6 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="estilos.css">
     <body>
-        
         <?php
             session_start();
             $token = uniqid();

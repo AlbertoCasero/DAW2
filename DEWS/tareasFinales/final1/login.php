@@ -9,21 +9,22 @@ if(isset($_POST["datos"])){
         try{
             $con = new PDO('mysql:host=localhost;dbname=cursoscp;charset=utf8', 'admin', '1234');
             $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $query=$con->prepare("SELECT usuario,contraseña FROM administradores WHERE usuario=? AND contraseña=?");
-            $query->execute([$username,$password]);
+            $query = $con->prepare("SELECT usuario,contraseña FROM administradores WHERE usuario=? AND contraseña=?");
+            $query->execute([$username, $password]);
             if ($query->rowCount() > 0) {
                 header("Location: panelAdmin.php?token=$token");
                 exit();
             }
-            $query=$con->prepare("SELECT correo,contrasena FROM solicitantes WHERE correo=? AND contrasena=?");
-            $query->execute([$username,$password]);
+            $query = $con->prepare("SELECT dni, correo, contrasena FROM solicitantes WHERE correo=? AND contrasena=?");
+            $query->execute([$username, $password]);
             if ($query->rowCount() > 0) {
+                $fila = $query->fetch(PDO::FETCH_ASSOC);
+                $_SESSION['dni'] = $fila['dni'];
                 header("Location: panelUsuario.php?token=$token");
                 exit();
             }
-            exit();
-            $query->close();
-            $con->close();
+            echo "<div class='alert alert-danger'>Usuario o contraseña incorrectos.</div>";
+            $con = null;
         }catch(PDOException $e){
             die("Error de conexión: " . $e->getMessage());
         }
@@ -54,5 +55,9 @@ if(isset($_POST["datos"])){
         <input type="password" id="password" name="password" required><br>
         <input id="boton-login" name='datos' type="submit" value="Iniciar Sesión">
     </form>
+    <div class="text-center"><br>
+        <p>¿No tienes una cuenta? <a href="registro.php">Regístrate aquí</a></p><br>
+        <a href="listaCursos.php">Volver al Menu Principal</a>
+    </div>
 </body>
 </html>
