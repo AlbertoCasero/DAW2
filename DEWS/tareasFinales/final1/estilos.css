@@ -37,3 +37,14 @@ form.form-grid {
     max-width: 400px;
     margin: 0 auto;
 }
+.text-right{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 20px;
+}
+span.errores {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
